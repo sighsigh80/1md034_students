@@ -6,3 +6,10 @@ body {
 .allergy {
     font-weight: bold;
 }
+
+#burgerInfo {
+    color: white;
+    background-color: black;
+}
+
+#customerInfo {}
