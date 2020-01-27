@@ -18,3 +18,11 @@ button:hover {
     color: green;
     cursor: pointer;
 }
+
+#t1 {
+    width: 100%;
+}
+
+#t1 td {
+    text-align: center;
+}
