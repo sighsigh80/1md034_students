@@ -13,3 +13,8 @@ body {
 }
 
 #customerInfo {}
+
+button:hover {
+    color: green;
+    cursor: pointer;
+}
