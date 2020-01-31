@@ -38,3 +38,13 @@ button:hover {
 #t1 td {
     text-align: center;
 }
+
+#headerId {
+    margin:30px;
+}
+
+#headerPic {
+    height: 250px;
+    width: 100%;
+    opacity: 0.8;
+}
