@@ -19,6 +19,14 @@ button:hover {
     cursor: pointer;
 }
 
+section {
+    margin:30px;
+}
+
+#submitbutton {
+    margin-bottom: 100px;
+}
+
 #t1 {
     width: 100%;
 }
