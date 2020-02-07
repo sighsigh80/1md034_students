@@ -1,7 +1,7 @@
 const vm = new Vue({
   el: '#burgerWrapper',
   data: {
-      burgers : burgerArray,
+      burgers : food,
   }
 })
 

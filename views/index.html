@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="text/javascript" src="js/menu.js"></script>
     <script src="js/js_script.js"></script>
     <script src="https://vuejs.org/js/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="css/1cbStyle.css">
@@ -22,11 +23,12 @@
 	<div id="burgerWrapper" class="wrapper">
 	  <div class="box" v-for="item in burgers">
 	    <h2>{{item.name}}</h2>
-	    <img v-bind:src="item.picpath" width="250">
+	    <img v-bind:src="item.img" width="250">
 	    <ul>
 	      <li>{{item.calories}} Calories</li>
-	      <li>Contains {{item.alergy}}</li>
-	      <li v-if="item.vegan === 'yes'">Can be ordered vegan</li>
+	      <li v-if="item.lactose">Contains lactose</li>
+	      <li v-if="item.everything">Contains everything</li>
+	      <li v-if="item.vegan">Can be ordered vegan</li>
 	    </ul>
 	  </div>
 	</div>
