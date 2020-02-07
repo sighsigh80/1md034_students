@@ -1,3 +1,5 @@
+
+/*
 const vm = new Vue({
   el: '#burger-menu',
   data: {
@@ -8,3 +10,4 @@ const vm = new Vue({
     cdBurger : B5,
   }
 })
+*/
