@@ -95,3 +95,38 @@ function addBurgerMenu(burgers){
 addBurgerMenu(burgerArray);
 
 */
+
+/*
+document.getElementById("subButton").addEventListener("click", clickFunc);
+
+function clickFunc() {
+	console.log("Button clicked!");
+	return;
+}
+
+document.getElementById("subButton").addEventListener("click", printData);
+
+function getData() {
+	var dataArray = [];
+  dataArray.push(document.getElementById("fullname").value);
+  dataArray.push(document.getElementById("email").value);
+  dataArray.push(document.getElementById("street").value);
+  dataArray.push(document.getElementById("house").value);
+  dataArray.push(document.getElementById("recipient").value);
+  if(document.getElementById("female").checked) {
+    dataArray.push(document.getElementById("female").value);
+  }
+  else if(document.getElementById("male").checked) {
+    dataArray.push(document.getElementById("male").value);
+  }
+  else{
+    dataArray.push(document.getElementById("other").value);
+  }
+  return dataArray;
+}
+
+function printData() {
+	var dataArray = getData();
+  console.log(dataArray.toString());
+}
+*/
