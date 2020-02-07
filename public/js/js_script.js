@@ -41,7 +41,9 @@ let B4 = new menuItem('Small n Tasty', 'https://cdn-rdb.arla.com/Files/arla-se/1
 
 let B5 = new menuItem('Chicken Dream', 'https://barrels.se/app/uploads/2020/01/Unknown.jpeg', 500, 'lactose', 'yes');
 
-let div1 = document.getElementById('burger-menu');
+var burgerArray = [B1, B2, B3, B4, B5];
+
+/*
 
 function addNewBurger(newBurger) {
     let newDiv = document.createElement('div');
@@ -84,7 +86,6 @@ function addNewBurger(newBurger) {
     burgerWrapper.appendChild(newDiv);
 }
 
-var burgerArray = [B1, B2, B3, B4, B5];
 function addBurgerMenu(burgers){
     for (let i = 0; i < burgers.length; i++) {
 	addNewBurger(burgers[i]);
@@ -92,3 +93,5 @@ function addBurgerMenu(burgers){
 }
 
 addBurgerMenu(burgerArray);
+
+*/

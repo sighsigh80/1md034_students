@@ -20,6 +20,15 @@
 	<h2>Select burgers</h2>
 	<p>This is where you get to choose your bliss!</p>
 	<div id="burgerWrapper" class="wrapper">
+	  <div class="box" v-for="item in burgers">
+	    <h2>{{item.name}}</h2>
+	    <img v-bind:src="item.picpath" width="250">
+	    <ul>
+	      <li>{{item.calories}} Calories</li>
+	      <li>Contains {{item.alergy}}</li>
+	      <li v-if="item.vegan === 'yes'">Can be ordered vegan</li>
+	    </ul>
+	  </div>
 	</div>
       </section>
       <section id="customerInfo">

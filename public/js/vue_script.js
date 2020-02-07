@@ -1,13 +1,7 @@
-
-/*
 const vm = new Vue({
-  el: '#burger-menu',
+  el: '#burgerWrapper',
   data: {
-    ccBurger : B1,
-    tBurger : B2,
-    bBurger : B3,
-    stBurger : B4,
-    cdBurger : B5,
+      burgers : burgerArray,
   }
 })
-*/
+
