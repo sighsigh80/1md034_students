@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script type="text/javascript" src="js/menu.js"></script>
-    <script src="js/js_script.js"></script>
-    <script src="https://vuejs.org/js/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="css/1cbStyle.css">
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script src="js/js_script.js" defer></script>
+    <script src="js/vue_script.js" defer></script>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    
     <title>One-click Burgers</title>
     <meta charset="utf-8"/>
   </head>
@@ -23,7 +25,10 @@
 	<div id="burgerWrapper" class="wrapper">
 	  <div class="box" v-for="item in burgers">
 	    <h2>{{item.name}}</h2>
-	    <img v-bind:src="item.img" width="250">
+	    <img v-bind:src="item.img" height="250px" width="250px">
+	    <div class="checkboxDiv">
+	      <input id="item.cbID" type="checkbox">
+	    </div>
 	    <ul>
 	      <li>{{item.calories}} Calories</li>
 	      <li v-if="item.lactose">Contains lactose</li>
@@ -37,26 +42,26 @@
 	<h2>Customer information</h2>
 	<p>This is where you tell us all we need to know to make your day burger-tastic!</p>
 	<h4>Delivery information:</h4>
-	<form>
+	<form id="formInfo">
 	  <p>
 	    <label for="fullname">Full name</label><br>
-	    <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+	    <input type="text" id="fullname" v-model="fullName" name="fn" required="required" placeholder="First- and Last name">
 	  </p>
 	  <p>
 	    <label for="email">E-mail</label><br>
-	    <input type="text" id="email" name="em" required="required" placeholder="E-mail adress">
+	    <input type="text" id="email" v-model="email" name="em" required="required" placeholder="E-mail adress">
 	  </p>
 	  <p>
 	    <label for="street">Street</label><br>
-	    <input type="text" id="street" name="st" required="required" placeholder="Street name">
+	    <input type="text" id="street" v-model="street" name="st" required="required" placeholder="Street name">
 	  </p>
 	  <p>
 	    <label for="house">House number</label><br>
-	    <input type="text" id="house" name="hn" required="required" placeholder="House number">
+	    <input type="text" id="house" v-model="houseNr" name="hn" required="required" placeholder="House number">
 	  </p>
 	  <p>
 	    <label for="recipient">Recipient</label><br />
-	    <select id="recipient" name="rcp">
+	    <select id="recipient" v-model="payment" name="rcp">
               <option>Visa</option>
               <option>Mastercard</option>
               <option>Swish</option>
@@ -65,15 +70,15 @@
 	  </p>
 	  <p>
 	    <label>Gender</label><br />
-	    <input type="radio" id="female" name="gender" value="female"><label for="female">female</label><br />
-	    <input type="radio" id="male" name="gender" value="male"><label for="male">male</label><br />
-	    <input type="radio" id="other" name="gender" value="other" checked="checked"><label for="other">other</label><br />
+	    <input type="radio" id="female" v-model="gender" name="gender" value="female"><label for="female">female</label><br />
+	    <input type="radio" id="male" v-model="gender" name="gender" value="male"><label for="male">male</label><br />
+	    <input type="radio" id="other" v-model="gender" name="gender" value="other" checked="checked"><label for="other">other</label><br />
 	  </p>
 	</form>
+	<p id="submitbutton">
+	  <button id="subButton" type="submit" v-on:click="sendInfo()"><img src="https://img.icons8.com/nolan/2x/checkmark.png" /> Send Info</button>
+	</p>
       </section>
-      <p id="submitbutton">
-	<button type="submit"><img src="https://img.icons8.com/nolan/2x/checkmark.png" /> Send Info</button>
-      </p>
     </main>
     <footer>
       <p><small>This site is owned and operated by the One-click Business Group.</small></p>

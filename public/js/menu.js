@@ -5,6 +5,7 @@ let food = [
 	"lactose": true,
 	"everything": false,
 	"vegan": true,
+	"cbID": "cb1",
 	"img": "https://tasteandsee.com/wp-content/uploads/2017/06/Easy-Pimento-Cheese-and-Bacon-Burger-EL-burger-great.jpg"
     },
     {
@@ -13,6 +14,7 @@ let food = [
 	"lactose": false,
 	"everything": true,
 	"vegan": false,
+	"cbID": "cb2",
 	"img": "https://www.halsanskok.se//sites/default/files/2019-06/190227_GG_Care2share_Incredible%20Burger.jpg"
     },
     {
@@ -21,6 +23,7 @@ let food = [
 	"lactose": true,
 	"everything": false,
 	"vegan": true,
+	"cbID": "cb3",
 	"img": "https://www.vegomagasinet.se/wp-content/uploads/2018/06/beyond.jpg"
     },
     {
@@ -29,6 +32,7 @@ let food = [
 	"lactose": true,
 	"everything": false,
 	"vegan": true,
+	"cbID": "cb4",
 	"img": "https://cdn-rdb.arla.com/Files/arla-se/1361781217/43b7c050-b61b-4baa-8eb6-5a8ebb896bc4.jpg?crop=(104,0,-152,0)&w=479&h=335&ak=f525e733&hm=72b785fb"
     },
     {
@@ -37,6 +41,7 @@ let food = [
 	"lactose": true,
 	"everything": false,
 	"vegan": true,
+	"cbID": "cb5",
 	"img": "https://barrels.se/app/uploads/2020/01/Unknown.jpeg"
     },
 ]

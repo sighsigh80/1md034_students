@@ -12,6 +12,11 @@ section {
     padding: 15px;
 }
 
+.checkboxDiv {
+    text-align:center;
+    margin:auto;
+}
+
 #burgerInfo {
     color: white;
     background-color: black;

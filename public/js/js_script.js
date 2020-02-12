@@ -97,6 +97,7 @@ addBurgerMenu(burgerArray);
 */
 
 /*
+
 document.getElementById("subButton").addEventListener("click", clickFunc);
 
 function clickFunc() {
@@ -129,4 +130,5 @@ function printData() {
 	var dataArray = getData();
   console.log(dataArray.toString());
 }
+
 */
