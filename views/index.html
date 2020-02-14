@@ -27,7 +27,7 @@
 	    <h2>{{item.name}}</h2>
 	    <img v-bind:src="item.img" height="250px" width="250px">
 	    <div class="checkboxDiv">
-	      <input id="item.cbID" type="checkbox">
+	      <input id="item.cbID" type="checkbox" :value="item.name" name="itemCheckbox">
 	    </div>
 	    <ul>
 	      <li>{{item.calories}} Calories</li>
@@ -77,6 +77,17 @@
 	</form>
 	<p id="submitbutton">
 	  <button id="subButton" type="submit" v-on:click="sendInfo()"><img src="https://img.icons8.com/nolan/2x/checkmark.png" /> Send Info</button>
+	</p>
+	<h2 v-if="sendStatus">Order Recived!</h2>
+	<p v-if="sendStatus" v-for="item in itemsArray">1x {{item}}</p>
+	<h2 v-if="sendStatus">Order Info</h2>
+	<p v-if="sendStatus">
+	  Name: {{ sendArray[0] }} <br>
+	  E-mail: {{ sendArray[1] }} <br>
+	  Street: {{ sendArray[2] }} <br>
+	  House number: {{ sendArray[3] }} <br>
+	  Recipient: {{ sendArray[4] }} <br>
+	  Gender: {{ sendArray[5] }} <br>
 	</p>
       </section>
     </main>
