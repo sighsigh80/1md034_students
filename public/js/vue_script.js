@@ -17,24 +17,15 @@ const vm = new Vue({
 	itemsArray : [],
 	sendStatus : false,
 
-	orders: {},
+	orders : {},
+	orderNr : 0,
+        order : {
+	    orderId : "T",
+	    items : [],
+	    details: {x: 0, y: 0}
+	},
     },
-    created: function() {
-	/* When the page is loaded, get the current orders stored on the server.
-	 * (the server's code is in app.js) */
-	socket.on('initialize', function(data) {
-	    this.orders = data.orders;
-	}.bind(this));
-
-	/* Whenever an addOrder is emitted by a client (every open map.html is
-	 * a client), the server responds with a currentQueue message (this is
-	 * defined in app.js). The message's data payload is the entire updated
-	 * order object. Here we define what the client should do with it.
-	 * Spoiler: We replace the current local order object with the new one. */
-	socket.on('currentQueue', function(data) {
-	    this.orders = data.orders;
-	}.bind(this));
-    },
+    
     methods: {
 	getItems: function() {
 	    var elements = document.getElementsByName("itemCheckbox");
@@ -68,17 +59,13 @@ const vm = new Vue({
 	    this.sendArray = dataArray;
 	    this.sendStatus = true;
 	    console.log(dataArray.toString());
+	    this.addOrder(this.order);
 	    return dataArray;	
 	},
 
 	getNext: function() {
-	    /* This function returns the next available key (order number) in
-	     * the orders object, it works under the assumptions that all keys
-	     * are integers. */
-	    let lastOrder = Object.keys(this.orders).reduce(function(last, next) {
-		return Math.max(last, next);
-	    }, 0);
-	    return lastOrder + 1;
+	    this.orderNr++;
+	    return this.orderNr;
 	},
 	addOrder: function(event) {
 	    /* When you click in the map, a click event object is sent as parameter
@@ -86,18 +73,24 @@ const vm = new Vue({
 	     * The click event object contains among other things different
 	     * coordinates that we need when calculating where in the map the click
 	     * actually happened. */
+	    socket.emit('addOrder', {
+		orderId: this.getNext(),
+		details: {
+		    x : this.order.details.x,
+		    y : this.order.details.y,
+		},
+		orderItems: this.itemsArray,
+	    });
+	},
+
+	displayOrder: function(event) {
 	    let offset = {
 		x: event.currentTarget.getBoundingClientRect().left,
 		y: event.currentTarget.getBoundingClientRect().top,
 	    };
-	    socket.emit('addOrder', {
-		orderId: this.getNext(),
-		details: {
-		    x: event.clientX - 10 - offset.x,
-		    y: event.clientY - 10 - offset.y,
-		},
-		orderItems: ['Beans', 'Curry'],
-	    });
+	    this.order.details.x = event.clientX - 10 - offset.x;
+	    this.order.details.y = event.clientY - 10 - offset.y;
+
 	},
     },
 });
