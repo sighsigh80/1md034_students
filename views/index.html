@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="css/1cbStyle.css">
     <script type="text/javascript" src="js/menu.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
     <script src="js/js_script.js" defer></script>
     <script src="js/vue_script.js" defer></script>
     <script src="https://vuejs.org/js/vue.js"></script>
@@ -11,7 +12,7 @@
     <meta charset="utf-8"/>
   </head>
   <body>
-    <main>
+    <main id="main">
       <div id="bannerId">
 	<header id="headerId">
 	  <h1>Welcome to One-click Burgers!</h1>
@@ -52,14 +53,6 @@
 	    <input type="text" id="email" v-model="email" name="em" required="required" placeholder="E-mail adress">
 	  </p>
 	  <p>
-	    <label for="street">Street</label><br>
-	    <input type="text" id="street" v-model="street" name="st" required="required" placeholder="Street name">
-	  </p>
-	  <p>
-	    <label for="house">House number</label><br>
-	    <input type="text" id="house" v-model="houseNr" name="hn" required="required" placeholder="House number">
-	  </p>
-	  <p>
 	    <label for="recipient">Recipient</label><br />
 	    <select id="recipient" v-model="payment" name="rcp">
               <option>Visa</option>
@@ -74,6 +67,15 @@
 	    <input type="radio" id="male" v-model="gender" name="gender" value="male"><label for="male">male</label><br />
 	    <input type="radio" id="other" v-model="gender" name="gender" value="other" checked="checked"><label for="other">other</label><br />
 	  </p>
+	  <div class="view-box">
+	    <div id="dots" v-on:click="addOrder">
+              <div 
+		v-for="(order, key) in orders"
+		v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+		{{key}}
+              </div>
+	    </div>
+	  </div>
 	</form>
 	<p id="submitbutton">
 	  <button id="subButton" type="submit" v-on:click="sendInfo()"><img src="https://img.icons8.com/nolan/2x/checkmark.png" /> Send Info</button>
@@ -84,10 +86,8 @@
 	<p v-if="sendStatus">
 	  Name: {{ sendArray[0] }} <br>
 	  E-mail: {{ sendArray[1] }} <br>
-	  Street: {{ sendArray[2] }} <br>
-	  House number: {{ sendArray[3] }} <br>
-	  Recipient: {{ sendArray[4] }} <br>
-	  Gender: {{ sendArray[5] }} <br>
+	  Recipient: {{ sendArray[2] }} <br>
+	  Gender: {{ sendArray[3] }} <br>
 	</p>
       </section>
     </main>
