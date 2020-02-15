@@ -13,7 +13,7 @@
   <div id="orders">
     <div id="orderList">
       <div v-for="(order, key) in orders">
-        #{{ key }}: {{ order.orderItems.join(", ") }}
+        #{{ key }}: {{ order.details.orderItems.join(", ") }} Info: {{ order.details.sendInfo.join(", ")}}
       </div>
     </div>
     <div id="dots">

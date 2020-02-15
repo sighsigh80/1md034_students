@@ -21,8 +21,9 @@ const vm = new Vue({
 	orderNr : 0,
         order : {
 	    orderId : "T",
-	    items : [],
-	    details: {x: 0, y: 0}
+	    details : {x: 0, y: 0},
+	    sendInfo : [],
+	    orderItems : [],
 	},
     },
     
@@ -68,18 +69,14 @@ const vm = new Vue({
 	    return this.orderNr;
 	},
 	addOrder: function(event) {
-	    /* When you click in the map, a click event object is sent as parameter
-	     * to the function designated in v-on:click (i.e. this one).
-	     * The click event object contains among other things different
-	     * coordinates that we need when calculating where in the map the click
-	     * actually happened. */
 	    socket.emit('addOrder', {
 		orderId: this.getNext(),
 		details: {
 		    x : this.order.details.x,
 		    y : this.order.details.y,
+		    sendInfo : this.sendArray,
+		    orderItems: this.itemsArray,
 		},
-		orderItems: this.itemsArray,
 	    });
 	},
 
